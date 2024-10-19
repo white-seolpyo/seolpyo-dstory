@@ -8,16 +8,16 @@
 
 티스토리와 동일한 url 구조를 사용합니다.
 
-## 사용방법
-### 패키지 설치
+# 사용방법
+## 패키지 설치
 디스토리 패키지를 설치합니다.
 
-tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote를 필요로 합니다.
+tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote 패키지가 함께 설치됩니다.
 ```
 >> pip install seolpyo_dstory
 ```
 
-### 장고 프로젝트 생성
+## 장고 프로젝트 생성
 mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성합니다.
 ```
 >> mkdir mysite
@@ -25,7 +25,7 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 >> django-admin startproject config .
 ```
 
-### 기초 설정
+## 기초 설정
 mysite > config > settings.py를 찾아 이름을 settings_base.py로 변경합니다.
 
 settings.py를 새로 생성하고, 다음과 같이 작성합니다.
@@ -44,11 +44,43 @@ MEDIA_ROOT = BASE_DIR / 'media'
 ```
 
 
-별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 현재 설정에서 기본값은 다음과 같습니다.
+※ 별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 현재 설정에서 기본값은 다음과 같습니다.
+
+## 손쉬운 애드센스 코드 추가
+애드센스를 사용하려는 경우, 다음과 같이 pub 번호를 추가하면 됩니다.
+
+예를 들어 pub번호가 pub-123456789라면 다음과 같이 설정하면 됩니다.
 ```
 # config/settings.py
-AUTH_USER_MODEL = 'seolpyo_dstory.User'
+DSTORY_CONTEXT['adsense'] = '123456789'
 ```
+
+## 손쉬운 구글 애널리틱스 코드 추가
+구글 애널리틱스를 사용하는 경우
+
+예를 들어 측정ID가 G-A1B2C3D4라면 다음과 같이 설정하면 됩니다.
+```
+# config/settings.py
+DSTORY_CONTEXT['ga'] = 'A1B2C3D4'
+```
+
+구글 태그매니저를 사용하는 경우
+
+예를 들어 컨테이너ID가 GTM-X1Y2Z3라면 다음과 같이 설정하면 됩니다.
+```
+# config/settings.py
+DSTORY_CONTEXT['gtm'] = 'X1Y2Z3'
+```
+
+## 손쉬운 네이버 사이트 인증
+네이버 웹마스터도구에서 html 파일 업로드를 선택한 다음, 요구하는 url의 코드 번호를 삽입합니다.
+예를 들어 요구하는 url이 naver-site-verification: naverA1B2C3D4E5F6G7H8I9.html이라면 다음과 같이 설정하면 됩니다.
+```
+# config/settings.py
+DSTORY_NAVER = 'A1B2C3D4E5F6G7H8I9'
+```
+
+## url 추가하기
 
 urls.py를 열어 내용을 다음과 같이 변경합니다.
 ```
@@ -76,20 +108,20 @@ if settings.DEBUG:
     urlpatterns += static('media/', document_root=(settings.BASE_DIR / 'media/'))
 ```
 
-### 마이그레이션
+## 마이그레이션
 관리자를 추가하기 위해 마이그레이션을 생성하고, 적용합니다.
 ```
 >> python manage.py makemigrations
 >> python manage.py migrate
 ```
 
-#### 관리자 추가하기
+### 관리자 추가하기
 createsuperuser 명령을 통해 관리자를 추가합니다.
 ```
 >> python manage.py createsuperuser
 ```
 
-### 티스토리 백업파일을 이용해 글 복구하기
+## 티스토리 백업파일을 이용해 글 복구하기
 이 패키지는 티스토리 블로그 이사를 위한 2가지 방법을 제공합니다.
 
 하나는 백업파일만을 이용한 단순 복구, 다른 하나는 백업파일과 티스토리 블로그에 접속해 공개설정, 비밀번호, 문자 주소 등의 정보를 가져와 적용하는 것입니다.
@@ -98,7 +130,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 
 다운로드한 티스토리 백업파일을 mysite 폴더에 이동시킨 다음, tistory.zip이라는 이름으로 변경합니다.
 
-#### 백업파일을 통한 단순복구
+### 백업파일을 통한 단순복구
 장고 shell을 실행하고, 다음 명령어를 입력합니다.
 ```
 >> python manage.py shell
@@ -106,7 +138,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 >> r()
 ```
 
-#### 백업파일과 티스토리 블로그를 통한 복구
+### 백업파일과 티스토리 블로그를 통한 복구
 장고 shell을 실행하고, 다음 명령어를 입력합니다.
 
 복구 과정에서 티스토리에 로그인하기 위한 로그인 아이디와 로그인 비밀번호를 요구합니다.
@@ -118,7 +150,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 >> r()
 ```
 
-### 확인하기
+## 확인하기
 장고 프로젝트를 실행하고, 복구된 글을 확인해봅니다.
 
 로컬 서버에서 실행하는 경우 기본 주소는 127.0.0.1:8000입니다.
