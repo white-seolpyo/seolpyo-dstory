@@ -76,7 +76,7 @@ DSTORY_CONTEXT['gtm'] = 'X1Y2Z3'
 
 ## 손쉬운 네이버 사이트 인증
 네이버 웹마스터도구에서 html 파일 업로드를 선택한 다음, 요구하는 url의 코드 번호를 삽입합니다.
-예를 들어 요구하는 url이 naver-site-verification: naverA1B2C3D4E5F6G7H8I9.html이라면 다음과 같이 설정하면 됩니다.
+예를 들어 요구하는 url이 naverA1B2C3D4E5F6G7H8I9.html이라면 다음과 같이 설정하면 됩니다.
 ```
 # config/settings.py
 DSTORY_NAVER = 'A1B2C3D4E5F6G7H8I9'
