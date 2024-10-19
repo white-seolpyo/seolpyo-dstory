@@ -175,8 +175,9 @@ def restore(author_id=1, do_print=True):
     rmtree(path_backup)
     # print('백업 파일 삭제 성공')
 
-    if do_print: print(f'{Post.objects.count():,}개의 게시글을 복구했습니다.')
-
+    if do_print:
+        print(f'{Post.objects.count():,}개의 게시글을 복구했습니다.')
+        return 'Ctrl + Z 키를 입력해 django shell을 종료해주세요.'
     return
 
 

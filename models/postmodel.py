@@ -141,7 +141,7 @@ class BasePost(models.Model):
             img = soup.select_one('img')
             if img:
                 self._thumbnail = img['src']
-                if self._thumbnail.startswith('/'): self._thumbnail = f'//{Site.objects.get_current().domain}{self._thumbnail}'
+                if self._thumbnail.startswith('/'): self._thumbnail = f"//{Site.objects.get_current().domain if not settings.DEBUG else '127.0.0.1:8000'}{self._thumbnail}"
             else: self._thumbnail = False
 
         return self._thumbnail
