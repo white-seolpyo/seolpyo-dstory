@@ -122,7 +122,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 # 샘플 이미지
 다음은 해당 패키지를 통해 티스토리 블로그를 이사하여 운영 중인 사이트의 샘플 이미지입니다.
 
-샘플 블로그 : <https://dstory.seolpyo.com/>
+샘플 사이트 : <https://dstory.seolpyo.com/>
 
 티스토리 블로그 : <https://white-seolpyo.tistory.com/>
 
