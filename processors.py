@@ -6,7 +6,7 @@ from django.http import HttpRequest
 from django.shortcuts import resolve_url
 from django.utils.module_loading import import_string
 
-from .models import Post, Category, Tag
+from .models import Category, Tag
 from .forms import SearchForm
 from . import settings as default_setting
 
@@ -15,26 +15,11 @@ form_search = getattr(settings, 'DSTORY_FORM_SEARCH', None)
 if form_search: form_search = import_string(form_search)
 else: form_search = SearchForm
 
-default_context = {
-    'site_name': '디스토리',
+default_context = default_setting.DSTORY_CONTEXT
+default_context.update({
     'category_list': Category.objects.filter(parent=None).exclude(name__in=['서식', '페이지',]),
     'tag_list': Tag.objects.all(),
-}
-
-default_lightbox = {
-    'alwaysShowNavOnTouchDevices': False,
-    'albumLabel': '%2개 중 %1번째 이미지',
-    'disableScrolling': False,
-    'fadeDuration': 100,
-    'fitImagesInViewport': True,
-    'imageFadeDuration': 100,
-    'maxWidth': '',
-    'maxHeight': '',
-    'positionFromTop': 50,
-    'resizeDuration': 100,
-    'showImageNumberLabel': True,
-    'wrapAround': False
-}
+})
 
 
 def get_context(request: HttpRequest):
@@ -44,18 +29,18 @@ def get_context(request: HttpRequest):
 
     is_tistory_user = settings.AUTH_USER_MODEL == 'seolpyo_dstory.User'
 
-    name_login = getattr(settings, 'DSTORY_LOGIN_NAME', 'seolpyo_dstory:login' if is_tistory_user else None)
+    name_login = getattr(settings, 'DSTORY_LOGIN_NAME', default_setting.DSTORY_LOGIN_NAME if is_tistory_user else None)
     try: url_login = resolve_url(name_login) if name_login else None
     except: url_login = None
 
-    name_logout = getattr(settings, 'DSTORY_LOGOUT_NAME', 'seolpyo_dstory:logout' if is_tistory_user else None)
+    name_logout = getattr(settings, 'DSTORY_LOGOUT_NAME', default_setting.DSTORY_LOGOUT_NAME if is_tistory_user else None)
     try: url_logout = resolve_url(name_logout) if name_logout else None
     except: url_logout = None
 
     favicon = getattr(settings, 'DSTORY_FAVICON', '')
     if favicon and favicon.startswith('/'): favicon = f'//{url_base}{favicon}'
 
-    lightbox = default_lightbox
+    lightbox = default_setting.DSOTRY_LIGHTBOX
     lightbox.update(getattr(settings, 'DSOTRY_LIGHTBOX', {}))
 
     context.update({

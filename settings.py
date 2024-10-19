@@ -1,3 +1,29 @@
+# for settings.py
+AUTH_USER_MODEL = 'seolpyo_dstory.User'
+apps = [
+    'seolpyo_dstory',
+    'django_summernote',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+]
+SITE_ID = 1
+processor = 'seolpyo_dstory.processors.get_context'
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+MEDIA_URL = 'media/'
+mdeia_dir = 'media'
+
+
+# for summnote
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'height': '600',
+    },
+}
+
+
+# for dstory
 DSTORY_SLUG = False
 
 DSTORY_PAGE = 8
