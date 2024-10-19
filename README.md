@@ -1,6 +1,8 @@
 # 프로젝트 문의 / 제안
 프로젝트와 관련한 내용은 <https://django.seolpypo.com/>에 이야기해주시면 감사합니다.
 
+또한 패키지의 상세 설명을 설표의장고 사이트에서 확인하실 수 있습니다.
+
 # 프로젝트 목적
 백업파일을 이용하여 티스토리 블로그에 작성한 글들을 Django로 이전하여 운영할 수 있도록 합니다.
 
@@ -11,7 +13,9 @@
 디스토리 패키지를 설치합니다.
 
 tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote를 필요로 합니다.
-```>> pip install seolpyo_dstory```
+```
+>> pip install seolpyo_dstory
+```
 
 ### 장고 프로젝트 생성
 mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성합니다.
@@ -36,12 +40,16 @@ TEMPLATES > OPTIONS > context_processors에 seolpyo_dstory.processors.get_contex
 
 ### 마이그레이션
 관리자를 추가하기 위해 마이그레이션을 생성하고, 적용합니다.
-```>> python manage.py makemigrations```
-```>> python manage.py migrate```
+```
+>> python manage.py makemigrations
+>> python manage.py migrate
+```
 
 #### 관리자 추가하기
 createsuperuser 명령을 통해 관리자를 추가합니다.
-```>> python manage.py createsuperuser```
+```
+>> python manage.py createsuperuser
+```
 
 ### 티스토리 백업파일을 이용해 글 복구하기
 이 패키지는 티스토리 이사를 위한 2가지 방법을 제공합니다.
@@ -74,7 +82,9 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 장고 프로젝트를 실행하고, 복구된 글을 확인해봅니다.
 
 로컬 서버에서 실행하는 경우 기본 주소는 127.0.0.1:8000입니다.
-```>> python manage.py runserver```
+```
+>> python manage.py runserver
+```
 
 
 # 샘플 이미지
