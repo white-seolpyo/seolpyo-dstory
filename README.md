@@ -47,9 +47,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 ※ 별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 현재 설정에서 기본값은 다음과 같습니다.
 
 ## 손쉬운 애드센스 코드 추가
-애드센스를 사용하려는 경우, 다음과 같이 pub 번호를 추가하면 됩니다.
+애드센스를 사용하려는 경우, 다음과 같이 ca-pub 번호를 추가하면 됩니다.
 
-예를 들어 pub번호가 pub-123456789라면 다음과 같이 설정하면 됩니다.
+ca-pub 번호를 추가하는 것으로 head 영역의 script 태그를 추가하고, ads.txt 페이지를 생성합니다.
+
+예를 들어 ca-pub번호가 ca-pub-123456789라면 다음과 같이 설정하면 됩니다.
 ```
 # config/settings.py
 DSTORY_CONTEXT['adsense'] = '123456789'
