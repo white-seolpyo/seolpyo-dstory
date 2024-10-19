@@ -27,14 +27,44 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 
 ### 기초 설정
 INSTALLED_APPS에 seolpyo_dstory, django_summenote, django.contrib.sites, django.contrib.sitemaps를 추가합니다.
+```
+# settings.py
+INSTALLED_APPS = [
+    'seolpyo_dstory',
+    'django_summenote',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    ...
+]
+```
 
 seolpyo_dsotry.settings 파일에 기초설정을 위한 기본 변수들을 작성해놓았으니 이를 활용할 수 있습니다.
 
 별도의 이용자 모델이 없는 경우, AUTH_USER_MODEL을 seolpyo_dstory.User로 선언합니다.
+```
+# settings.py
+AUTH_USER_MODEL = 'seolpyo_dstory.User'
+```
 
 MEDIA_ROOT를 선언합니다.
 
 TEMPLATES > OPTIONS > context_processors에 seolpyo_dstory.processors.get_context를 추가합니다.
+```
+# settings.py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                ...
+                'seolpyo_dstory.processors.get_context',
+            ],
+        },
+    },
+]
+```
 
 또는 seolpyo_dsotry.settings의 processor를 추가합니다.
 
@@ -97,3 +127,4 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 ![이미지 1](https://github.com/white-seolpyo/seolpyo_dstory/blob/main/img1.png?raw=true)
 
 ![이미지 2](https://github.com/white-seolpyo/seolpyo_dstory/blob/main/img2.png?raw=true)
+
