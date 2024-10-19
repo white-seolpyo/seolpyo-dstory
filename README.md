@@ -33,7 +33,7 @@ settings.py를 새로 생성하고, 다음과 같이 작성합니다.
 seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
 # settings.py
-from .settgings_base import *
+from .settings_base import *
 from seolpyo_dstory.settings import *
 for i in apps:
   if i not in INSTALLED_APPS: INSTALLED_APPS.append(i)
@@ -48,6 +48,31 @@ MEDIA_ROOT = BASE_DIR / 'media'
 ```
 # settings.py
 AUTH_USER_MODEL = 'seolpyo_dstory.User'
+```
+
+urls.py를 열어 내용을 다음과 같이 변경합니다.
+```
+from django.conf import settings
+from django.contrib import admin
+from django.urls import path, include
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
+    path('', include('seolpyo_dstory.urls')),
+]
+
+if not settings.DEBUG:
+    handler400 = 'seolpyo_dstory.views.handler'
+    handler403 = 'seolpyo_dstory.views.handler'
+    handler404 = 'seolpyo_dstory.views.handler'
+    handler500 = 'seolpyo_dstory.views.handler'
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static('media/', document_root=(settings.BASE_DIR / 'media/'))
 ```
 
 ### 마이그레이션
