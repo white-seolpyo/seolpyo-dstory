@@ -26,47 +26,29 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 ```
 
 ### 기초 설정
-INSTALLED_APPS에 seolpyo_dstory, django_summenote, django.contrib.sites, django.contrib.sitemaps를 추가합니다.
+mysite > config > settings.py를 찾아 이름을 settings_base.py로 변경합니다.
+
+settings.py를 새로 생성하고, 다음과 같이 작성합니다.
+
+seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
 # settings.py
-INSTALLED_APPS = [
-    'seolpyo_dstory',
-    'django_summenote',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
-    ...
-]
+from .settgings_base import *
+from seolpyo_dstory.settings import *
+for i in apps:
+  if i not in INSTALLED_APPS: INSTALLED_APPS.append(i)
+
+TEMPLATES['OPTIONS']['context_processors'].append(processor)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 ```
 
-seolpyo_dsotry.settings 파일에 기초설정을 위한 기본 변수들을 작성해놓았으니 이를 활용할 수 있습니다.
 
-별도의 이용자 모델이 없는 경우, AUTH_USER_MODEL을 seolpyo_dstory.User로 선언합니다.
+별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 현재 설정에서 기본값은 다음과 같습니다.
 ```
 # settings.py
 AUTH_USER_MODEL = 'seolpyo_dstory.User'
 ```
-
-MEDIA_ROOT를 선언합니다.
-
-TEMPLATES > OPTIONS > context_processors에 seolpyo_dstory.processors.get_context를 추가합니다.
-```
-# settings.py
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                ...
-                'seolpyo_dstory.processors.get_context',
-            ],
-        },
-    },
-]
-```
-
-또는 seolpyo_dsotry.settings의 processor를 추가합니다.
 
 ### 마이그레이션
 관리자를 추가하기 위해 마이그레이션을 생성하고, 적용합니다.
@@ -117,6 +99,11 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 ```
 >> python manage.py runserver
 ```
+
+# 그 외 설정들
+여러 설정들을 만들고 적용할 수 있도록 했습니다.
+
+설정들에 대한 설명은 [설표의장고](https://django.seolpyo.com/)에서 확인하실 수 있습니다.
 
 
 # 샘플 이미지
