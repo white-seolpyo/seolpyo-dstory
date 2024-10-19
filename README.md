@@ -32,7 +32,7 @@ settings.py를 새로 생성하고, 다음과 같이 작성합니다.
 
 seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
-# settings.py
+# config/settings.py
 from .settings_base import *
 from seolpyo_dstory.settings import *
 for i in apps:
@@ -46,12 +46,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 현재 설정에서 기본값은 다음과 같습니다.
 ```
-# settings.py
+# config/settings.py
 AUTH_USER_MODEL = 'seolpyo_dstory.User'
 ```
 
 urls.py를 열어 내용을 다음과 같이 변경합니다.
 ```
+# config/urls.py
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
