@@ -12,7 +12,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seolpyo-dstory"
-version = "0.0.1"
+version = "0.0.2"
 dependencies  = [
   "tqdm >= 4.66.5",
   "beautifulsoup4 >= 4.12.3",
