@@ -27,7 +27,7 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 
 ## 기초 설정
 1. mysite > config 에 settings 폴더를 만든 다음, settings.py를 settings 폴더로 이동시킵니다.
-1. mysite > config > settigns 폴더에 __init__.py 를 만들고, 다음과 같이 작성합니다.
+1. mysite > config > settigns 폴더에 ```__init__.py``` 를 만들고, 다음과 같이 작성합니다.
 
 seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
@@ -123,7 +123,7 @@ if settings.DEBUG:
 
 createsuperuser 명령을 통해 관리자를 추가합니다.
 
-user 생성시 비밀번호를 입력하더라도 마스킹(*) 문자가 노출되지 않을 수 있습니다.
+user 생성시 비밀번호를 입력하더라도 마스킹 문자(*)가 노출되지 않을 수 있습니다.
 ```
 >> python manage.py createsuperuser
 ```
