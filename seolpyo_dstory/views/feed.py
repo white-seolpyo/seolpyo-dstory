@@ -27,7 +27,7 @@ class FeedView(Feed):
 
     def item_description(self, obj: Post):
         if obj.password: return '비밀 글입니다.'
-        return ' '.join(BeautifulSoup(obj.content, 'html.parser').text.split())
+        return obj.text
 
     def item_pubdate(self, obj: Post): return timezone.localtime(obj.date_pub)
 
