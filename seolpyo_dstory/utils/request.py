@@ -34,7 +34,7 @@ class Tistory:
     def get_cookie(self):
         print('===\n\n티스토리 상세 복구 기능을 선택하셨습니다.\n티스토리 로그인 정보가 필요하며, 2단계 인증을 사용 중이라면 잠시 해제해주세요.\n이를 원치 않는 경우 Ctrl + C 키를 입력해 코드를 중지하세요.')
         login_id = input('\n\n티스토리 로그인 아이디 : ')
-        login_pw = getpass('로그인 비밀번호(입력값이 표시되지 않을 수 있습니다.) : ')
+        login_pw = getpass('로그인 비밀번호(키 입력을 받아도 *표시가 나타나지 않을 수 있습니다.) : ')
         print('\n티스토리 블로그 정보를 가져오는 중.. 잠시 기다려주세요.')
 
         option = webdriver.ChromeOptions()
