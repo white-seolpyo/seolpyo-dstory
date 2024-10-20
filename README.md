@@ -14,7 +14,7 @@
 
 tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote 패키지가 함께 설치됩니다.
 ```
->> pip install seolpyo_dstory
+>> pip install seolpyo-dstory
 ```
 
 ## 장고 프로젝트 생성
