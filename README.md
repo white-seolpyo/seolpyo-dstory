@@ -83,7 +83,7 @@ DSTORY_CONTEXT['gtm'] = 'X1Y2Z3'
 DSTORY_NAVER = 'A1B2C3D4E5F6G7H8I9'
 ```
 
-## url 추가하기
+## urls.py 변경하기
 
 mysite > config > urls.py를 열어 내용을 다음과 같이 변경합니다.
 ```
