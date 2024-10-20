@@ -26,19 +26,20 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 ```
 
 ## 기초 설정
-mysite > config > settings.py를 찾아 이름을 settings_base.py로 변경합니다.
-
-settings.py를 새로 생성하고, 다음과 같이 작성합니다.
+1. mysite > config 에 settings 폴더를 만든 다음, settings.py를 settings 폴더로 이동시킵니다.
+1. mysite > config > settigns 폴더에 __init__.py 를 만들고, 다음과 같이 작성합니다.
 
 seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
-# config/settings.py
-from .settings_base import *
+# config/settings/__init__.py
+from .settings import *
 from seolpyo_dstory.settings import *
+
+BASE_DIR = BASE_DIR.parent
 for i in apps:
   if i not in INSTALLED_APPS: INSTALLED_APPS.append(i)
 
-TEMPLATES['OPTIONS']['context_processors'].append(processor)
+TEMPLATES[0]['OPTIONS']['context_processors'].append(processor)
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 ```
@@ -84,7 +85,7 @@ DSTORY_NAVER = 'A1B2C3D4E5F6G7H8I9'
 
 ## url 추가하기
 
-urls.py를 열어 내용을 다음과 같이 변경합니다.
+mysite > config > urls.py를 열어 내용을 다음과 같이 변경합니다.
 ```
 # config/urls.py
 from django.conf import settings
@@ -118,7 +119,11 @@ if settings.DEBUG:
 ```
 
 ### 관리자 추가하기
+티스토리 백업파일을 이용한 복구에는 관리자 계정이 필요합니다.
+
 createsuperuser 명령을 통해 관리자를 추가합니다.
+
+user 생성시 비밀번호를 입력하더라도 마스킹(*) 문자가 노출되지 않을 수 있습니다.
 ```
 >> python manage.py createsuperuser
 ```
@@ -136,7 +141,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 장고 shell을 실행하고, 다음 명령어를 입력합니다.
 ```
 >> python manage.py shell
->> from seolpyo_dstory.utils import resotre as r
+>> from seolpyo_dstory.utils import restore as r
 >> r()
 ```
 
@@ -148,7 +153,7 @@ createsuperuser 명령을 통해 관리자를 추가합니다.
 2단계 인증을 사용 중인 경우 로그인에 실패하기 때문에 2단계 인증을 사용하지 않는 계정이어야 합니다.
 ```
 >> python manage.py shell
->> from seolpyo_dstory.utils import resotre2 as r
+>> from seolpyo_dstory.utils import restore2 as r
 >> r()
 ```
 
