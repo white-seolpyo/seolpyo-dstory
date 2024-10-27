@@ -1,5 +1,5 @@
 # 프로젝트 문의 / 제안
-프로젝트와 관련한 내용은 게시판에 이야기해주시면 감사합니다.
+프로젝트와 관련한 내용은 [설표의장고 게시판](https://django.seolpyo.com/board/)에 이야기해주시면 감사합니다.
 
 # 프로젝트 설명
 패키지명은 Django + Tistory를 합친 DSTORY(디스토리)로 명명했습니다.
@@ -25,14 +25,13 @@ tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote 패키지
 ```
 
 ## 장고 프로젝트 생성방법
-mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성합니다.
+C:/ 경로로 이동한 다음(리눅스인 경우 ~/), mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성합니다.
 ```
 >> cd C:/
 >> mkdir mysite
 >> cd mysite
 >> django-admin startproject config .
 ```
-* C:/ 경로로 이동한 다음(리눅스인 경우 ~/), mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성합니다.
 
 
 ## 기초 설정하기
@@ -41,7 +40,6 @@ mysite라는 폴더를 생성하고, 폴더 안에 장고 프로젝트를 생성
 
 seolpyo_dsotry.settings 파일은 장고의 기초설정을 빠르게 하기 위해 작성된 파일입니다.
 ```
-
 # config/settings/__init__.py
 from .settings import *
 from seolpyo_dstory.settings import *
@@ -64,44 +62,8 @@ DSTORY_CONTEXT['gtm'] = '' # GTM-X1Y2Z3 => 'X1Y2Z3'
 DSTORY_NAVER = '' # naverA1B2C3D4E5F6G7H8I9.html => 'A1B2C3D4E5F6G7H8I9'
 ```
 
-
 ※ 별도의 이용자 모델이 있는 경우, AUTH_USER_MODEL 선언해주어야 합니다. 위 설정을 사용하면 'seolpyo_dstory.User'를 사용하게 됩니다.
 
-## 손쉬운 애드센스 코드 추가
-애드센스를 사용하려는 경우, 다음과 같이 ca-pub 번호를 추가하면 됩니다.
-
-ca-pub 번호를 추가하는 것으로 head 영역의 script 태그를 추가하고, ads.txt 페이지를 생성합니다.
-
-예를 들어 ca-pub번호가 ca-pub-123456789라면 다음과 같이 설정하면 됩니다.
-```
-# config/settings.py
-DSTORY_CONTEXT['adsense'] = '123456789'
-```
-
-## 손쉬운 구글 애널리틱스 코드 추가
-구글 애널리틱스를 사용하는 경우
-
-예를 들어 측정ID가 G-A1B2C3D4라면 다음과 같이 설정하면 됩니다.
-```
-# config/settings.py
-DSTORY_CONTEXT['ga'] = 'A1B2C3D4'
-```
-
-구글 태그매니저를 사용하는 경우
-
-예를 들어 컨테이너ID가 GTM-X1Y2Z3라면 다음과 같이 설정하면 됩니다.
-```
-# config/settings.py
-DSTORY_CONTEXT['gtm'] = 'X1Y2Z3'
-```
-
-## 손쉬운 네이버 사이트 인증
-네이버 웹마스터도구에서 html 파일 업로드를 선택한 다음, 요구하는 url의 코드 번호를 삽입합니다.
-예를 들어 요구하는 url이 naverA1B2C3D4E5F6G7H8I9.html이라면 다음과 같이 설정하면 됩니다.
-```
-# config/settings.py
-DSTORY_NAVER = 'A1B2C3D4E5F6G7H8I9'
-```
 
 ## urls.py 변경하기
 
@@ -159,6 +121,7 @@ user 생성시 비밀번호를 입력하더라도 마스킹 문자(*)가 노출�
 
 ### 백업파일을 통한 단순복구
 장고 shell을 실행하고, 다음 명령어를 입력합니다.
+임의로 설정한 문자 주소, 비밀 글 설정 등은 복구되지 않습니다. 백업파일에 해당 정보가 없기 때문입니다.
 ```
 >> python manage.py shell
 >> from seolpyo_dstory.utils import restore as r
@@ -183,7 +146,7 @@ user 생성시와 마찬가지로 비밀번호 입력시 마스킹 문자(*)가 
 ## 확인하기
 장고 프로젝트를 실행하고, 복구된 글을 확인해봅니다.
 
-로컬 서버에서 실행하는 경우 기본 주소는 127.0.0.1:8000입니다.
+로컬 서버에서 실행하는 경우 기본 주소는 <http://127.0.0.1:8000>입니다.
 ```
 >> python manage.py runserver
 ```
