@@ -1,3 +1,15 @@
+# 샘플 이미지
+다음은 해당 패키지를 통해 티스토리 블로그를 이사하여 운영 중인 사이트의 샘플 이미지입니다.
+
+샘플 사이트 : <https://dstory.seolpyo.com/>
+
+티스토리 블로그 : <https://white-seolpyo.tistory.com/>
+
+![이미지 1](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img1.png?raw=true)
+
+![이미지 2](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img2.png?raw=true)
+
+
 # 프로젝트 문의 / 제안
 프로젝트와 관련한 내용은 [설표의장고 게시판](https://django.seolpyo.com/board/)에 이야기해주시면 감사합니다.
 
@@ -171,15 +183,3 @@ user 생성시와 마찬가지로 비밀번호 입력시 마스킹 문자(*)가 
 디스토리 패키지를 통해 서버에서 웹사이트를 운영하는 방법은 다음 링크에서 확인하실 수 있습니다.
 
 [디스토리 배포 방법 확인하러 가기](https://django.seolpyo.com/entry/52/)
-
-# 샘플 이미지
-다음은 해당 패키지를 통해 티스토리 블로그를 이사하여 운영 중인 사이트의 샘플 이미지입니다.
-
-샘플 사이트 : <https://dstory.seolpyo.com/>
-
-티스토리 블로그 : <https://white-seolpyo.tistory.com/>
-
-![이미지 1](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img1.png?raw=true)
-
-![이미지 2](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img2.png?raw=true)
-
