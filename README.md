@@ -16,10 +16,19 @@
 
 
 # 사용방법
+다음과 같이 ">>"으로 표현되는 명령어는 cmd.exe에 입력하는 명령어입니다.
+cmd.exe는 윈도우키 + R => cmd 를 실행하면 사용할 수 있습니다.
+```
+>>
+```
 ## 패키지 설치
 디스토리 패키지를 설치합니다.
 
 tqdm, requests, bs4(BeautifulSoup), selenium, django, django-summenote 패키지가 함께 설치됩니다.
+
+컴퓨터에 파이썬이 설치되지 않았다면 다음 글을 확인해주세요.
+
+[파이썬 설치방법](https://django.seolpyo.com/entry/17/)
 ```
 >> pip install seolpyo-dstory
 ```
