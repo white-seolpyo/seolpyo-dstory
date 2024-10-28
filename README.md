@@ -5,6 +5,8 @@
 
 티스토리 블로그 : <https://white-seolpyo.tistory.com/>
 
+![디스토리 페이지 스피드](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVIDRQ%2FbtsJBRSClKw%2FnJknmXWwqM8fni9RiOrmxk%2Fimg.png)
+
 ![이미지 1](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img1.png?raw=true)
 
 ![이미지 2](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img2.png?raw=true)
@@ -141,8 +143,10 @@ user 생성시 비밀번호를 입력하더라도 마스킹 문자(*)가 노출�
 다운로드한 티스토리 백업파일을 mysite 폴더에 이동시킨 다음, tistory.zip이라는 이름으로 변경합니다.
 
 ### 백업파일을 통한 단순복구
-장고 shell을 실행하고, 다음 명령어를 입력합니다.
+다음 명령어를 순서대로 입력합니다.
 임의로 설정한 문자 주소, 비밀 글 설정 등은 복구되지 않습니다. 백업파일에 해당 정보가 없기 때문입니다.
+
+python manage.py shell은 장고 shell을 실행하기 위한 명령어입니다.
 ```
 >> python manage.py shell
 >> from seolpyo_dstory.utils import restore as r
@@ -150,7 +154,7 @@ user 생성시 비밀번호를 입력하더라도 마스킹 문자(*)가 노출�
 ```
 
 ### 백업파일과 티스토리 블로그를 통한 복구
-장고 shell을 실행하고, 다음 명령어를 입력합니다.
+다음 명령어를 순서대로 입력합니다.
 
 복구 과정에서 티스토리에 로그인하기 위한 로그인 아이디와 로그인 비밀번호를 요구합니다.
 
