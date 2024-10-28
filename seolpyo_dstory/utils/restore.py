@@ -12,7 +12,7 @@ from ..models import Post, Category, Tag
 
 
 usermodel = get_user_model()
-if not usermodel.objects.count():
+if not (usermodel.objects.filter(is_staff=True)|usermodel.objects.filter(is_superuser=True)).count():
     raise Exception('유저 모델이 생성되지 않았습니다.\n"python manage.py createsuperuser"를 먼저 진행해주세요.')
 
 base_path = getattr(settings, 'BASE_DIR')
@@ -114,7 +114,9 @@ def _get_tags(soup: BeautifulSoup):
     return tags
 
 
-def restore(author_id=1, do_print=True):
+def restore(author_id=None, do_print=True):
+    if not author_id:
+        author_id = (usermodel.objects.filter(is_staff=True)|usermodel.objects.filter(is_superuser=True)).first().pk
     if Post.objects.count() or Category.objects.count() or Tag.objects.count():
         an = ''
         while an.lower() != 'y':
