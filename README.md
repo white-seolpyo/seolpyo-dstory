@@ -5,7 +5,7 @@
 
 티스토리 블로그 : <https://white-seolpyo.tistory.com/>
 
-![디스토리 페이지 스피드](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVIDRQ%2FbtsJBRSClKw%2FnJknmXWwqM8fni9RiOrmxk%2Fimg.png)
+![디스토리 페이지 스피드](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img3.png?raw=true)
 
 ![이미지 1](https://github.com/white-seolpyo/seolpyo-dstory/blob/main/img1.png?raw=true)
 
